@@ -1,52 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 import About from "./About";
-
-// Custom hook for creating a typing animation effect
-const useTypingEffect = (words: string[], typingSpeed = 150, deletingSpeed = 100, pauseDuration = 1000) => {
-  const [text, setText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    const handleTyping = () => {
-      const currentWord = words[wordIndex];
-      const shouldDelete = isDeleting ? text.length > 0 : text.length === currentWord.length;
-
-      // Update text based on whether we're typing or deleting
-      setText((prev) => (isDeleting ? prev.slice(0, -1) : currentWord.slice(0, prev.length + 1)));
-
-      // Handle state changes and timing for the animation
-      if (!isDeleting && text === currentWord) {
-        timer = setTimeout(() => setIsDeleting(true), pauseDuration);
-      } else if (isDeleting && text === "") {
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
-      } else {
-        timer = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-      }
-    };
-
-    timer = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration]);
-
-  return text;
-};
+import { useLocation } from "react-router-dom";
 
 // Main Home component
 const Home: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   // Define roles for the typing animation
   const roles = ["Web Developer", "UI/UX Designer", "Problem Solver"];
-  const animatedText = useTypingEffect(roles);
 
   return (
     <div className="flex flex-col min-h-screen bg-dark-blue text-white relative overflow-hidden">
       {/* Hero section */}
       <section className="flex flex-col md:flex-row items-center justify-center min-h-screen pt-16 z-10 container mx-auto px-4">
-        {/* Left column: Introduction and CTA buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +37,18 @@ const Home: React.FC = () => {
             Ofir <span className="text-blue-400">Patish</span>
           </h1>
           <p className="text-2xl">
-            A <span className="font-bold text-blue-400">{animatedText}</span>
+            A{" "}
+            <span className="font-bold text-blue-400">
+              <Typewriter
+                words={roles}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </span>
           </p>
 
           {/* CTA buttons */}
@@ -81,10 +70,10 @@ const Home: React.FC = () => {
           className="md:w-1/2 p-8 md:pl-16 relative"
         >
           {/* Circular profile picture with white border */}
-          <div className="w-80 h-96 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto relative">
+          <div className="w-96 h-[32rem] rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto relative">
             <div className="absolute inset-0 bg-white rounded-full transform scale-y-125"></div>
             <img
-              src="/images/ppf.jpg"
+              src="/images/profile.jpg"
               alt="Ofir Patish"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
@@ -94,6 +83,8 @@ const Home: React.FC = () => {
 
       {/* About section */}
       <About />
+
+      {/* Portfolio section */}
 
       {/* Contact section */}
       <section id="contact" className="py-16 bg-gray-100">
