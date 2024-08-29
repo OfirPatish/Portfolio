@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     event.preventDefault();
     setIsMenuOpen(false);
 
-    if (sectionId === "top") {
+    if (sectionId === "header") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       navigate("/");
     } else {
@@ -54,9 +54,9 @@ const Header: React.FC = () => {
             <ul className="flex space-x-6">
               <li>
                 <a
-                  href="#"
-                  className="font-bold text-lg  hover:text-blue-400 transition-colors duration-300"
-                  onClick={(e) => scrollToSection(e, "top")}
+                  href="#header"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
+                  onClick={(e) => scrollToSection(e, "header")}
                 >
                   Home
                 </a>
@@ -104,9 +104,9 @@ const Header: React.FC = () => {
           <ul className="flex flex-col items-center py-4">
             <li>
               <a
-                href="#"
+                href="#header"
                 className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
-                onClick={(e) => scrollToSection(e, "top")}
+                onClick={(e) => scrollToSection(e, "header")}
               >
                 Home
               </a>
