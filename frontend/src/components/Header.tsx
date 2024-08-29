@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 const Header: React.FC = () => {
   // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight; // Assuming Hero takes full viewport height
+      setIsSticky(window.scrollY > heroHeight - 100); // 100px before the end of Hero
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     event.preventDefault();
@@ -23,7 +35,13 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-dark-blue text-white fixed w-full z-20">
+    <header
+      className={`${
+        isSticky
+          ? "fixed top-0 left-0 right-0 bg-dark-blue shadow-lg transition-all duration-300 ease-in-out"
+          : "absolute top-0 left-0 right-0 bg-transparent"
+      } z-50 text-white`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -37,7 +55,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="font-bold text-lg uppercase hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg  hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "top")}
                 >
                   Home
@@ -46,7 +64,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#about"
-                  className="font-bold text-lg uppercase hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "about")}
                 >
                   About
@@ -55,7 +73,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#portfolio"
-                  className="font-bold text-lg uppercase hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "portfolio")}
                 >
                   Portfolio
@@ -64,7 +82,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#contact"
-                  className="font-bold text-lg uppercase hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "contact")}
                 >
                   Contact
@@ -75,22 +93,14 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <FaBars className="w-6 h-6" />
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-secondary">
+        <nav className="md:hidden bg-dark-blue bg-opacity-90">
           <ul className="flex flex-col items-center py-4">
             <li>
               <a
