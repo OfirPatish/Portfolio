@@ -55,6 +55,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#header"
+                  aria-label="Navigate to Home section"
                   className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "header")}
                 >
@@ -64,6 +65,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#about"
+                  aria-label="Navigate to About section"
                   className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "about")}
                 >
@@ -73,6 +75,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#portfolio"
+                  aria-label="Navigate to Portfolio section"
                   className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "portfolio")}
                 >
@@ -82,6 +85,7 @@ const Header: React.FC = () => {
               <li>
                 <a
                   href="#contact"
+                  aria-label="Navigate to Contact section"
                   className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
                   onClick={(e) => scrollToSection(e, "contact")}
                 >
@@ -105,6 +109,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="#header"
+                aria-label="Navigate to Home section"
                 className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
                 onClick={(e) => scrollToSection(e, "header")}
               >
@@ -114,6 +119,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="#about"
+                aria-label="Navigate to About section"
                 className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
                 onClick={(e) => scrollToSection(e, "about")}
               >
@@ -123,6 +129,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="#portfolio"
+                aria-label="Navigate to Portfolio section"
                 className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
                 onClick={(e) => scrollToSection(e, "portfolio")}
               >
@@ -132,6 +139,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 href="#contact"
+                aria-label="Navigate to Contact section"
                 className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
                 onClick={(e) => scrollToSection(e, "contact")}
               >
