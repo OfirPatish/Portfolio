@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "../components/Hero";
 import About from "./About";
-import Contact from "./Contact";
 import SkillsCarousel from "../components/SkillsCarousel";
+import Portfolio from "./Portfolio";
+import Contact from "./Contact";
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
       <Hero />
       <About />
       <SkillsCarousel />
+      <Portfolio />
       <Contact />
     </div>
   );

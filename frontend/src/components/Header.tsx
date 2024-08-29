@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import Lottie from "lottie-react";
+import codeAnimation from "../assets/Code.json";
 
 const Header: React.FC = () => {
   // State to manage mobile menu visibility
@@ -10,8 +12,8 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = window.innerHeight; // Assuming Hero takes full viewport height
-      setIsSticky(window.scrollY > heroHeight - 100); // 100px before the end of Hero
+      const heroHeight = window.innerHeight;
+      setIsSticky(window.scrollY > heroHeight - 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,9 +46,12 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-semibold text-blue-400" onClick={(e) => scrollToSection(e, "top")}>
-            Tech<span className="text-white font-bold">Solutions</span>
+          {/* Logo with Lottie animation */}
+          <Link to="/" className="flex items-center space-x-2" onClick={(e) => scrollToSection(e, "top")}>
+            <div className="w-8 h-8">
+              <Lottie animationData={codeAnimation} loop={true} />
+            </div>
+            <span className="text-2xl font-semibold text-white">opdev</span>
           </Link>
 
           {/* Desktop Navigation */}
