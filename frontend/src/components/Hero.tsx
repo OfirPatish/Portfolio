@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
           {floatingIcons.map(({ Icon, top, left, right, bottom, size, duration }, index) => (
             <motion.div
               key={index}
-              className="absolute text-blue-400"
+              className="absolute text-blue-400 hidden md:block" // Add 'hidden md:block' here
               style={{ top, left, right, bottom }}
               animate={{
                 y: ["0%", "20%", "0%"],
