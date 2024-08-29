@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import Header from "./Header";
 import { FaReact, FaNodeJs } from "react-icons/fa";
@@ -22,9 +22,6 @@ const Hero: React.FC = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const { scrollY } = useViewportScroll();
-  const y = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
     <section className="relative min-h-screen">
@@ -58,7 +55,7 @@ const Hero: React.FC = () => {
           <div className="mt-8">
             <button
               onClick={() => scrollToSection("contact")}
-              className="bg-blue-500 text-white px-6 py-3 rounded-md mr-4 hover:bg-blue-600 transition-colors duration-300 font-bold text-lg uppercase"
+              className="bg-blue-500 text-white px-6 py-3 rounded-md mr-2 hover:bg-blue-600 transition-colors duration-300 font-bold text-lg"
             >
               Hire Me
             </button>

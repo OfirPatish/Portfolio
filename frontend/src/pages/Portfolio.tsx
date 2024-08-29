@@ -41,7 +41,7 @@ const Portfolio: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Section title */}
         <h2 className="text-4xl font-bold mb-16 text-center">
-          <span className="text-blue-600 text-xl font-extrabold uppercase tracking-wider">My Portfolio</span>
+          <span className="text-blue-600 text-xl font-extrabold uppercase tracking-wider">Portfolio</span>
         </h2>
         {/* Section description */}
         <p className="text-center text-gray-600 mb-12">
