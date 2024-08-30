@@ -51,7 +51,7 @@ const Header: React.FC = () => {
             <div className="w-8 h-8">
               <Lottie animationData={codeAnimation} loop={true} />
             </div>
-            <span className="text-2xl font-semibold text-white">opdev</span>
+            <span className="text-2xl font-semibold text-white font-poppins">opdev</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
                 <a
                   href="#header"
                   aria-label="Navigate to Home section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
                   onClick={(e) => scrollToSection(e, "header")}
                 >
                   Home
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
                 <a
                   href="#about"
                   aria-label="Navigate to About section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
                   onClick={(e) => scrollToSection(e, "about")}
                 >
                   About
@@ -81,7 +81,7 @@ const Header: React.FC = () => {
                 <a
                   href="#portfolio"
                   aria-label="Navigate to Portfolio section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
                   onClick={(e) => scrollToSection(e, "portfolio")}
                 >
                   Portfolio
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                 <a
                   href="#contact"
                   aria-label="Navigate to Contact section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
                   onClick={(e) => scrollToSection(e, "contact")}
                 >
                   Contact
@@ -115,7 +115,7 @@ const Header: React.FC = () => {
               <a
                 href="#header"
                 aria-label="Navigate to Home section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
                 onClick={(e) => scrollToSection(e, "header")}
               >
                 Home
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
               <a
                 href="#about"
                 aria-label="Navigate to About section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
                 onClick={(e) => scrollToSection(e, "about")}
               >
                 About
@@ -135,7 +135,7 @@ const Header: React.FC = () => {
               <a
                 href="#portfolio"
                 aria-label="Navigate to Portfolio section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
                 onClick={(e) => scrollToSection(e, "portfolio")}
               >
                 Portfolio

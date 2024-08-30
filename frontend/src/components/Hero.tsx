@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen font-poppins">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950"></div>
       <Header />
       <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen pt-24">
