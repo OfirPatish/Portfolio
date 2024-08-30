@@ -36,7 +36,7 @@ const About: React.FC = () => {
         <h3 className="text-xl font-semibold text-blue-600">Full Stack Development</h3>
         <p className="text-lg text-gray-700">John Bryce - 10 Month Intensive Course</p>
         <ul className="list-disc list-inside text-gray-700">
-          <li>Mastered front-end and back-end technologies</li>
+          <li>Gained proficiency in front-end and back-end technologies</li>
           <li>Developed multiple full-stack projects</li>
           <li>Collaborated in agile team environments</li>
         </ul>
