@@ -1,6 +1,10 @@
 # Portfolio Project
 
-This is a full-stack portfolio project.
+This is a full-stack portfolio project showcasing my skills and projects.
+
+## Live Website
+
+Visit the live portfolio at: [https://portfolio.ofirpatish.com/](https://portfolio.ofirpatish.com/)
 
 ## Structure
 
@@ -30,4 +34,4 @@ This is a full-stack portfolio project.
 
 ## License
 
-[Choose an appropriate license or remove this section]
+[MIT License](LICENSE)
