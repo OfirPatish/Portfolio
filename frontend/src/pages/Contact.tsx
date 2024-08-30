@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MdEmail } from "react-icons/md";
 import Lottie from "lottie-react";
 import envelopeAnimation from "../assets/Envelope.json";
 
