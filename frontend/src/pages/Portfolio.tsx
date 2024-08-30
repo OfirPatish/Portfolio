@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaPlus } from "react-icons/fa";
-import { FaProjectDiagram } from "react-icons/fa";
+import { FaPlus, FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import Lottie from "lottie-react";
 import cardAnimation from "../assets/Card.json";
 
@@ -42,8 +41,9 @@ const Portfolio: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Section title */}
         <h2 className="text-4xl font-bold mb-16 text-center flex items-center justify-center">
-          <FaProjectDiagram className="w-8 h-8 mr-2 text-blue-500" />
-          <span className="text-black text-xl font-extrabold uppercase tracking-wider font-heading">Portfolio</span>
+          <FaCaretRight className="w-8 h-8 mr-2 text-blue-500" />
+          <span className="text-black text-xl font-extrabold uppercase tracking-wider mx-2">Portfolio</span>
+          <FaCaretLeft className="w-8 h-8 ml-2 text-blue-500" />
         </h2>
         {/* Section description */}
         <p className="text-center text-gray-600 mb-12">
