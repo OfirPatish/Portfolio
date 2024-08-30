@@ -13,15 +13,15 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("message", message);
-
       const response = await fetch("https://contact-form-handler.ofirpatishop.workers.dev", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
       });
+
+      const responseText = await response.text();
 
       if (response.ok) {
         console.log("Message sent successfully");
@@ -30,8 +30,7 @@ const Contact: React.FC = () => {
         setEmail("");
         setMessage("");
       } else {
-        const errorText = await response.text();
-        console.error("Failed to send message:", errorText);
+        console.error("Failed to send message:", responseText);
       }
     } catch (error) {
       console.error("Error:", error);
