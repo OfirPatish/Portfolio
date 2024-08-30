@@ -10,14 +10,32 @@ const Contact: React.FC = () => {
   const [message, setMessage] = useState("");
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission logic (e.g., API call)
-    console.log("Form submitted:", { name, email, message });
-    // Reset form fields
-    setName("");
-    setEmail("");
-    setMessage("");
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
+
+      const response = await fetch("https://contact-form-handler.ofirpatishop.workers.dev", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log("Message sent successfully");
+        // Reset form fields
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        const errorText = await response.text();
+        console.error("Failed to send message:", errorText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
