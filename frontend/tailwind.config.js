@@ -10,8 +10,8 @@ module.exports = {
         "dark-blue": "#1e2235",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        opensans: ["Open Sans", "sans-serif"],
+        sans: ["Open Sans", "sans-serif"],
+        heading: ["Poppins", "sans-serif"],
       },
     },
   },

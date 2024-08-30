@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaPlus } from "react-icons/fa";
+import { FaProjectDiagram } from "react-icons/fa";
 import Lottie from "lottie-react";
 import cardAnimation from "../assets/Card.json";
 
@@ -40,8 +41,9 @@ const Portfolio: React.FC = () => {
     <section id="portfolio" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         {/* Section title */}
-        <h2 className="text-4xl font-bold mb-16 text-center">
-          <span className="text-blue-600 text-xl font-extrabold uppercase tracking-wider">Portfolio</span>
+        <h2 className="text-4xl font-bold mb-16 text-center flex items-center justify-center">
+          <FaProjectDiagram className="w-8 h-8 mr-2 text-blue-500" />
+          <span className="text-black text-xl font-extrabold uppercase tracking-wider font-heading">Portfolio</span>
         </h2>
         {/* Section description */}
         <p className="text-center text-gray-600 mb-12">
@@ -53,7 +55,7 @@ const Portfolio: React.FC = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className="w-[420px] h-[420px] bg-gray-100 rounded-lg shadow-lg overflow-hidden relative group"
+              className="w-[420px] h-[420px] bg-gray-200 rounded-lg shadow-lg overflow-hidden relative group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}

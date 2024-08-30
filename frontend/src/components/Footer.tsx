@@ -1,12 +1,16 @@
 import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    navigate("/", { replace: true });
   };
 
   return (

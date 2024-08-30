@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen font-poppins">
+    <section className="relative min-h-screen">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950"></div>
       <Header />
       <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen pt-24">
@@ -55,13 +55,13 @@ const Hero: React.FC = () => {
           <div className="mt-8">
             <button
               onClick={() => scrollToSection("contact")}
-              className="bg-blue-500 text-white px-6 py-3 rounded-md mr-2 hover:bg-blue-600 transition-colors duration-300 font-bold text-lg"
+              className="bg-blue-500 text-white px-6 py-3 rounded-md mr-2 hover:bg-blue-600 transition-colors duration-300 font-bold text-lg font-heading"
             >
               Hire Me
             </button>
             <button
               onClick={() => scrollToSection("portfolio")}
-              className="text-blue-500 px-6 py-3 rounded-md font-bold text-lg hover:text-white transition-colors duration-300"
+              className="text-blue-500 px-6 py-3 rounded-md font-bold text-lg hover:text-white transition-colors duration-300 font-heading"
             >
               View My Portfolio
             </button>

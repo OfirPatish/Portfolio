@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MdEmail } from "react-icons/md";
+import Lottie from "lottie-react";
+import envelopeAnimation from "../assets/Envelope.json";
 
 // Contact component: Renders a contact form for user inquiries
 const Contact: React.FC = () => {
@@ -24,10 +26,27 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <h2 className="text-4xl font-bold mb-16 text-center flex items-center justify-center">
-          <MdEmail className="w-8 h-8 mr-2 text-blue-500" />
-          <span className="text-black text-xl font-extrabold uppercase tracking-wider">Get in Touch</span>
-        </h2>
+        <div className="text-center mb-16">
+          <div className="w-32 h-32 mx-auto mb-6">
+            <Lottie animationData={envelopeAnimation} loop={true} />
+          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl font-bold text-blue-600"
+          >
+            Let's Connect
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-gray-600 mt-4"
+          >
+            Have a question or want to work together?
+          </motion.p>
+        </div>
         <div className="max-w-2xl mx-auto">
           {/* Animated contact form */}
           <motion.form
@@ -49,6 +68,7 @@ const Contact: React.FC = () => {
                 onChange={(e) => setName(e.target.value)}
                 className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
                 required
+                disabled
               />
             </div>
             {/* Email input field */}
@@ -63,6 +83,7 @@ const Contact: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500"
                 required
+                disabled
               />
             </div>
             {/* Message textarea */}
@@ -76,13 +97,19 @@ const Contact: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500 h-32"
                 required
+                disabled
               ></textarea>
             </div>
+            {/* Demo notice */}
+            <p className="text-gray-500 italic text-sm mb-4 text-center">
+              Note: This form is currently a demo and does not submit data.
+            </p>
             {/* Submit button */}
             <div className="text-center">
               <button
                 type="submit"
                 className="bg-blue-500 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition-colors duration-300"
+                disabled
               >
                 Send Message
               </button>

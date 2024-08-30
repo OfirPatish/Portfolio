@@ -19,7 +19,7 @@ const About: React.FC = () => {
   // Content for each tab
   const content = {
     story: (
-      <p className="text-lg text-gray-700 leading-relaxed font-opensans">
+      <p className="text-lg text-gray-700 leading-relaxed">
         I'm <span className="text-blue-600 font-bold">Ofir Patish</span>, a passionate{" "}
         <span className="text-blue-600 font-bold">full-stack developer</span> with a lifelong love for{" "}
         <span className="text-blue-600 font-bold">technology</span>. From my early days tinkering with{" "}
@@ -32,7 +32,7 @@ const About: React.FC = () => {
       </p>
     ),
     education: (
-      <div className="space-y-4 font-opensans">
+      <div className="space-y-4">
         <h3 className="text-xl font-semibold text-blue-600">Full Stack Development</h3>
         <p className="text-lg text-gray-700">John Bryce - 10 Month Intensive Course</p>
         <ul className="list-disc list-inside text-gray-700">
@@ -43,7 +43,7 @@ const About: React.FC = () => {
       </div>
     ),
     contact: (
-      <div className="space-y-4 font-opensans">
+      <div className="space-y-4">
         <p className="text-lg text-gray-700">
           <FaEnvelope className="inline mr-2 text-blue-600" />
           Feel free to reach out to me at{" "}
@@ -55,7 +55,7 @@ const About: React.FC = () => {
       </div>
     ),
     work: (
-      <div className="space-y-4 font-opensans">
+      <div className="space-y-4">
         <h3 className="text-xl font-semibold text-blue-600">Open for Opportunities</h3>
         <p className="text-lg text-gray-700">
           I'm currently seeking roles where I can apply my full-stack skills, contribute to innovative projects, and
@@ -89,7 +89,7 @@ const About: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center px-4 py-2 m-2 rounded-full transition-colors font-poppins ${
+                    className={`flex items-center px-4 py-2 m-2 rounded-full transition-colors ${
                       activeTab === tab.id ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                     }`}
                   >

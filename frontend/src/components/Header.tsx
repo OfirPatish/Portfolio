@@ -5,7 +5,6 @@ import Lottie from "lottie-react";
 import codeAnimation from "../assets/Code.json";
 
 const Header: React.FC = () => {
-  // State to manage mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const navigate = useNavigate();
@@ -24,9 +23,9 @@ const Header: React.FC = () => {
     event.preventDefault();
     setIsMenuOpen(false);
 
-    if (sectionId === "header") {
+    if (sectionId === "top" || sectionId === "header") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      navigate("/");
+      navigate("/", { replace: true });
     } else {
       const section = document.getElementById(sectionId);
       if (section) {
@@ -46,22 +45,20 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          {/* Logo with Lottie animation */}
           <Link to="/" className="flex items-center space-x-2" onClick={(e) => scrollToSection(e, "top")}>
             <div className="w-8 h-8">
               <Lottie animationData={codeAnimation} loop={true} />
             </div>
-            <span className="text-2xl font-semibold text-white font-poppins">opdev</span>
+            <span className="text-2xl font-semibold text-white font-heading">opdev</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex space-x-6">
               <li>
                 <a
                   href="#header"
                   aria-label="Navigate to Home section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-heading"
                   onClick={(e) => scrollToSection(e, "header")}
                 >
                   Home
@@ -71,7 +68,7 @@ const Header: React.FC = () => {
                 <a
                   href="#about"
                   aria-label="Navigate to About section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-heading"
                   onClick={(e) => scrollToSection(e, "about")}
                 >
                   About
@@ -81,7 +78,7 @@ const Header: React.FC = () => {
                 <a
                   href="#portfolio"
                   aria-label="Navigate to Portfolio section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-heading"
                   onClick={(e) => scrollToSection(e, "portfolio")}
                 >
                   Portfolio
@@ -91,7 +88,7 @@ const Header: React.FC = () => {
                 <a
                   href="#contact"
                   aria-label="Navigate to Contact section"
-                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-poppins"
+                  className="font-bold text-lg hover:text-blue-400 transition-colors duration-300 font-heading"
                   onClick={(e) => scrollToSection(e, "contact")}
                 >
                   Contact
@@ -100,14 +97,12 @@ const Header: React.FC = () => {
             </ul>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
             <FaBars className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <nav className="md:hidden bg-dark-blue bg-opacity-90">
           <ul className="flex flex-col items-center py-4">
@@ -115,7 +110,7 @@ const Header: React.FC = () => {
               <a
                 href="#header"
                 aria-label="Navigate to Home section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-heading"
                 onClick={(e) => scrollToSection(e, "header")}
               >
                 Home
@@ -125,7 +120,7 @@ const Header: React.FC = () => {
               <a
                 href="#about"
                 aria-label="Navigate to About section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-heading"
                 onClick={(e) => scrollToSection(e, "about")}
               >
                 About
@@ -135,7 +130,7 @@ const Header: React.FC = () => {
               <a
                 href="#portfolio"
                 aria-label="Navigate to Portfolio section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-poppins"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-heading"
                 onClick={(e) => scrollToSection(e, "portfolio")}
               >
                 Portfolio
@@ -145,7 +140,7 @@ const Header: React.FC = () => {
               <a
                 href="#contact"
                 aria-label="Navigate to Contact section"
-                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300"
+                className="block py-2 font-bold text-lg uppercase hover:text-accent transition-colors duration-300 font-"
                 onClick={(e) => scrollToSection(e, "contact")}
               >
                 Contact
