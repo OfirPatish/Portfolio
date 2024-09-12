@@ -16,9 +16,9 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Project 1",
-    description: "Demo project 1",
-    url: "https://example.com/project1",
+    title: "Social Media App",
+    description: "A social media application that allows users to connect, share, and interact with each other.",
+    url: "https://social.ofirpatish.com/",
   },
   {
     id: 2,
