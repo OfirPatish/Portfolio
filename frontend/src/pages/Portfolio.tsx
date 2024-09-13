@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaPlus, FaCaretRight, FaCaretLeft } from "react-icons/fa";
 import Lottie from "lottie-react";
 import cardAnimation from "../assets/Card.json";
+import socialImage from "../assets/Social.png";
 
 // Interface for project data
 interface Project {
@@ -10,6 +11,7 @@ interface Project {
   title: string;
   description: string;
   url: string;
+  image?: string;
 }
 
 // Array of project data
@@ -19,6 +21,7 @@ const projects: Project[] = [
     title: "Social Media App",
     description: "A social media application that allows users to connect, share, and interact with each other.",
     url: "https://social.ofirpatish.com/",
+    image: socialImage,
   },
   {
     id: 2,
@@ -60,12 +63,15 @@ const Portfolio: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Lottie animation container */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-3/5 h-3/5 flex items-center justify-center">
-                  <Lottie animationData={cardAnimation} loop={true} />
+              {project.image ? (
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-3/5 h-3/5 flex items-center justify-center">
+                    <Lottie animationData={cardAnimation} loop={true} />
+                  </div>
                 </div>
-              </div>
+              )}
               {/* Hover overlay with project details */}
               <motion.div
                 className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300"
