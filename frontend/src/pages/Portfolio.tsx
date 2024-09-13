@@ -50,8 +50,8 @@ const Portfolio: React.FC = () => {
         </h2>
         {/* Section description */}
         <p className="text-center text-gray-600 mb-12">
-          In the future, this section will showcase my completed projects with live demos and detailed descriptions. For
-          now, enjoy these placeholder project cards!
+          Explore my portfolio showcasing a range of projects. Each project demonstrates my skills in frontend
+          development, from responsive designs to interactive user interfaces.
         </p>
         {/* Project grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
